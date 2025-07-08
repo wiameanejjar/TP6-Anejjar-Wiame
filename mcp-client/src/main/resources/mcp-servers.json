@@ -1,11 +1,26 @@
 {
   "mcpServers": {
     "filesystem": {
-      "command": "npx",
+      "command": "C:\\nvm4w\\nodejs\\npx.cmd",
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "Users/Wiame/Desktop/TPREAL/mcp-demo-spring-python"
+        "C:\\Users\\Wiame\\Desktop\\TPREAL\\mcp-demo-spring-python"
+      ],
+      "env": {
+        "PATH": "C:\\Users\\Wiame\\AppData\\Local\\nvm\\v23.3.0",
+        "NODE_PATH": "C:\\Users\\Wiame\\AppData\\Local\\nvm\\v23.3.0\\node_modules"
+      }
+    },
+    "python-mcp": {
+      "command": "C:\\Python\\Python310\\Scripts\\uv.exe",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "mcp",
+        "run",
+        "C:\\Users\\Wiame\\Desktop\\TPREAL\\mcp-demo-spring-python\\python-mcp-server\\server.py"
       ]
     }
   }
