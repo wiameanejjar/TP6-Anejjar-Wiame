@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "Users/Wiame/Desktop/TPREAL/mcp-demo-spring-python"
+      ]
+    }
+  }
+}

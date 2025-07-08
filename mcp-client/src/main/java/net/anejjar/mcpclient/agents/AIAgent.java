@@ -2,7 +2,6 @@ package net.anejjar.mcpclient.agents;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.stereotype.Service;
 
 @Service
