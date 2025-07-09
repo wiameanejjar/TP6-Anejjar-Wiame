@@ -1,4 +1,11 @@
 # Projet : Chatbot Agentique avec Spring AI et MCP
+
+----
+## Nom et Prénom : Anejjar Wiame
+## Filière: MSDIA
+
+----
+
 ## 📌 Objectif du TP
 Ce projet vise à développer une application de chatbot de nouvelle génération, capable d'interagir
 de manière intelligente et contextuelle avec les utilisateurs. Au cœur de cette solution se trouve l'intégration 
@@ -130,9 +137,44 @@ Ce fichier JSON liste les serveurs MCP externes que le client peut démarrer et 
 
 ![img](screens/mcp-server/JSON.JPG)
 
+# Teste de serveur MCP avec Postman : 
+
+#### Interface Postman - Outils MCP disponibles (getStockByCompanyName, getAllCompanies, getCompanyByName)
+![img](screens/mcp-server/captures/Image1.png)
+
+#### Requête MCP - Appel de l'outil getAllCompanies et Réponse JSON
+![img](screens/mcp-server/captures/Image2.png)
+
+#### Requête MCP - Appel de l'outil getCompanyByName avec argument 'OCP'
+![img](screens/mcp-server/captures/Image3.png)
+
+#### Connexion au Serveur MCP SSE via Postman (GET /sse)
+![img](screens/mcp-server/captures/Image4.png)
+
+#### Requête MCP - Initialisation de la session (POST /mcp/message)
+![img](screens/mcp-server/captures/Image5.png)
+
+#### Messages reçus du Serveur MCP SSE (message, mcp/message)
+![img](screens/mcp-server/captures/Image6.png)
 
 
+## Module Python-mcp-server:
+### Server.py: 
+Ce script Python définit un outil MCP à l’aide de la classe FastMCP du module mcp.server.fastmcp. Il expose une seule fonction nommée get_employee_info, marquée comme outil MCP grâce au décorateur @mcp.tool (sert à déclarer une fonction comme un outil MCP). Cette fonction prend un nom en entrée et retourne un dictionnaire contenant ce nom et un salaire fixe. L’appel à mcp.run(transport="stdio") permet de lancer le serveur en mode stdio, c’est-à-dire qu’il communique par l’entrée/sortie standard avec un client MCP. Ce fichier est utilisé indirectement via la configuration déclarée dans le fichier mcp-servers.json (déjà référencé dans application.properties du module mcp-client) : ce fichier JSON contient la commande pour lancer ce script Python en tant que serveur MCP dans la section "python-mcp", permettant ainsi au client Spring d’interagir dynamiquement avec ce serveur Python.
 
+![img](screens/mcp-server/pyth.JPG)
 
+# Problèmes rencontrés : 
+Lors de l'exécution du projet, j’ai rencontré des difficultés techniques sur mon ordinateur. Malgré une bonne configuration de l’environnement Python, le fichier server.py n’est pas reconnu comme un environnement Python exécutable. De plus, lorsque je lance une commande comme ollama run llama3.1 par exemple, le processus reste bloqué sans afficher de réponse, même après un long moment. J’ai essayé plusieurs solutions pour corriger ces problèmes (modification des chemins, réinstallation, vérification des dépendances), mais le blocage persiste, ceci est probablement à cause de limitations matérielles ou de performance de ma machine.
+
+![img](screens/mcp-server/conf.JPG)
+
+---
+
+# Conclusion
+
+Ce projet nous a permis de mettre en pratique les concepts de l’intelligence artificielle appliqués à un contexte réel grâce au protocole MCP. En connectant un client intelligent à un serveur de connaissances via des outils bien définis, nous avons pu automatiser des réponses basées sur des données métier. Malgré certaines contraintes techniques rencontrées, ce travail constitue une base solide pour développer des agents intelligents, modulaires et extensibles.
+
+---
 
 
