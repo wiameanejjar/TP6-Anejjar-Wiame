@@ -31,7 +31,23 @@ Peut inclure des agents (AIAgent) et des contrôleurs REST (AIRestController) po
 
 ![img](screens/mcp-server/mcp-client.JPG)
 
+  - mcp-server:  
+Ce module représente le serveur MCP développé en Java avec Spring Boot. Son rôle c'est qu'il expose des fonctionnalités (outils) spécifiques via le protocole MCP. Ces outils peuvent être appelés par le mcp-client ou d'autres clients MCP.  
+    - Fonctionnalités clés :  
+Implémentation de services métier (StockTolls.java pour des outils liés aux actions).  
+Exposition de ces services en tant qu'outils MCP.  
+Peut fonctionner comme un serveur SSE (Server-Sent Events) pour une communication en temps réel.
 
+![img](screens/mcp-server/mcp-server.JPG)
+
+   - python-mcp-server :  
+Ce module est un exemple de serveur MCP développé en Python. Son rôle est similaire au mcp-server Java, il expose des fonctionnalités (outils) spécifiques, mais implémentées en Python. Cela démontre la capacité du protocole MCP à intégrer des services développés dans différents langages.  
+   - Fonctionnalités clés :  
+Implémentation de logiques métier en Python (server.py pour des informations sur les employés).  
+Exposition de ces logiques en tant qu'outils MCP.  
+Peut être déployé en mode STDIO (Standard Input/Output) pour une communication directe avec le client MCP Spring AI.
+
+![img](screens/mcp-server/puthon-mcp.JPG)
 
 
 
