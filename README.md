@@ -65,8 +65,28 @@ Modèles d'IA : Llama3.1
   
 ### 2. Classe MCPServerApplication :
 
+Le fichier McpServerApplication.java constitue la classe principale de l'application Spring Boot située dans le module mcpserver. Grâce à l’annotation @SpringBootApplication, il sert de point d’entrée pour le lancement de l'application via la méthode main(). Une configuration essentielle y est déclarée avec la méthode annotée @Bean, qui expose un objet MethodToolCallbackProvider. Ce composant permet de rendre disponible la classe StockTolls comme source d'outils exploitables par Spring AI. En effet, sans cette déclaration, les méthodes annotées avec @Tool dans StockTolls ne seraient jamais reconnues ni exécutables dans le contexte de l'application. Ce code montre donc comment intégrer et activer dynamiquement des outils personnalisés.
 
+![img](screens/mcp-server/mcpserverApp.JPG)
 
+### 3. Application.properties :  
+
+Ce fichier permet de spécifier la configuration principale du serveur Spring Boot, notamment les paramètres liés au serveur MCP (Model Context Protocol), aux endpoints, au port d’exécution et au niveau de journalisation.    
+
+  - spring.application.name=mcp-server : définit le nom de l'application Spring Boot.  
+  - Configuration du serveur MCP (Model Context Protocol) :  
+       - spring.ai.mcp.server.name=spring-mcp-server : le nom interne du serveur MCP.  
+       - spring.ai.mcp.server.type=sync : mode de traitement (synchrone).  
+       - spring.ai.mcp.server.version=1.0.0 : version déclarée du serveur.  
+       - spring.ai.mcp.server.sse-endpoint=/sse : endpoint pour les connexions SSE (Server-Sent Events).  
+       - spring.ai.mcp.server.sse-message-endpoint=/mcp/message : endpoint pour l’envoi des messages SSE.  
+       - spring.ai.mcp.server.prompt-change-notification=true , spring.ai.mcp.server.tool-change-notification=true , spring.ai.mcp.server.resource-change-notification=true : ces trois lignes activent les notifications automatiques en cas de changement de prompt, d’outil ou de ressource.  
+  - Configuration du serveur HTTP :  
+        - server.port=8899 : le serveur tourne sur le port 8899.  
+  - Configuration des logs:  
+       - logging.level.io.modelcontextprotocol=TRACE , logging.level.org.springframework.ai.mcp=TRACE : permet d’avoir un niveau de log très détaillé (TRACE) sur le protocole MCP et sur Spring AI.
+   
+    ![img](screens/mcp-server/propertiesformcpserver.JPG)
 
 
 
