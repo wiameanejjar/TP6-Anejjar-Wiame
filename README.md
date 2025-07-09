@@ -50,9 +50,9 @@ Peut être déployé en mode STDIO (Standard Input/Output) pour une communicatio
 ![img](screens/mcp-server/puthon-mcp.JPG)
 
 # Technologies Utilisées
-Backend : Java (Spring Boot, Spring AI), Python, NodeJS
-Protocoles : MCP (Multi-Agent Communication Protocol), SSE
-Modèles d'IA : Llama3.1
+Backend : Java (Spring Boot, Spring AI), Python, NodeJS  
+Protocoles : MCP (Multi-Agent Communication Protocol), SSE  
+Modèles d'IA : Llama3.1  
 
 ## 📄 Explication détaillée d'implémentation de projet
 
