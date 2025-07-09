@@ -21,7 +21,7 @@ Le projet mcp-demo-spring-python est organisée pour séparer les responsabilit�
 
   ![img](screens/mcp-server/structuregeneral.JPG)
 
-  - mcp-client :  
+  - Mcp-client :  
 Ce module est côté client. Il est développé en Java avec Spring Boot et utilise Spring AI.  Son rôle il reçoit les requêtes des utilisateurs, les traite en utilisant des modèles d'IA externes (Llama3.1, Claude, OpenAI) via Spring AI, et interagit avec les serveurs MCP pour exécuter des outils spécifiques.  
      - Fonctionnalités clés :  
 Interface avec les modèles de langage via Spring AI.  
@@ -31,7 +31,7 @@ Peut inclure des agents (AIAgent) et des contrôleurs REST (AIRestController) po
 
 ![img](screens/mcp-server/mcp-client.JPG)
 
-  - mcp-server:  
+  - Mcp-server:  
 Ce module représente le serveur MCP développé en Java avec Spring Boot. Son rôle c'est qu'il expose des fonctionnalités (outils) spécifiques via le protocole MCP. Ces outils peuvent être appelés par le mcp-client ou d'autres clients MCP.  
     - Fonctionnalités clés :  
 Implémentation de services métier (StockTolls.java pour des outils liés aux actions).  
@@ -40,7 +40,7 @@ Peut fonctionner comme un serveur SSE (Server-Sent Events) pour une communicatio
 
 ![img](screens/mcp-server/mcp-server.JPG)
 
-   - python-mcp-server :  
+   - Python-mcp-server :  
 Ce module est un exemple de serveur MCP développé en Python. Son rôle est similaire au mcp-server Java, il expose des fonctionnalités (outils) spécifiques, mais implémentées en Python. Cela démontre la capacité du protocole MCP à intégrer des services développés dans différents langages.  
      - Fonctionnalités clés :  
 Implémentation de logiques métier en Python (server.py pour des informations sur les employés).  
@@ -82,7 +82,7 @@ Ce fichier permet de spécifier la configuration principale du serveur Spring Bo
        - spring.ai.mcp.server.sse-message-endpoint=/mcp/message : endpoint pour l’envoi des messages SSE.  
        - spring.ai.mcp.server.prompt-change-notification=true , spring.ai.mcp.server.tool-change-notification=true , spring.ai.mcp.server.resource-change-notification=true : ces trois lignes activent les notifications automatiques en cas de changement de prompt, d’outil ou de ressource.  
   - Configuration du serveur HTTP :  
-        - server.port=8899 : le serveur tourne sur le port 8899.  
+         - server.port=8899 : le serveur tourne sur le port 8899.  
   - Configuration des logs:  
        - logging.level.io.modelcontextprotocol=TRACE , logging.level.org.springframework.ai.mcp=TRACE : permet d’avoir un niveau de log très détaillé (TRACE) sur le protocole MCP et sur Spring AI.
    
