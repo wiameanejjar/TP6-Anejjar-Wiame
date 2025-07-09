@@ -89,6 +89,24 @@ Ce fichier permet de spécifier la configuration principale du serveur Spring Bo
     ![img](screens/mcp-server/propertiesformcpserver.JPG)
 
 
+## Module mcp-client:
+
+Le module mcp-client contient deux packages principaux : agents, qui regroupe la logique des agents intelligents, et controller, qui expose une interface REST pour interagir avec ces agents.
+
+### 1. Package agents : 
+#### Classe AIAgent : 
+La classe AIAgent, annotée avec @Service, représente un agent conversationnel basé sur l’API de Spring AI. Elle utilise un objet ChatClient pour interagir avec un LLM (Large Language Model). Lors de sa construction, l’agent est configuré pour utiliser des outils (via ToolCallbackProvider), une instruction système par défaut (pour guider les réponses), ainsi qu’un système de mémoire conversationnelle à fenêtre glissante (MessageWindowChatMemory) permettant de garder en mémoire les 20 derniers messages. Cela rend l’agent capable de fournir des réponses contextualisées. La méthode askLLLM(String query) est ensuite utilisée pour envoyer une requête utilisateur au LLM et récupérer la réponse générée.
+
+  ![img](screens/mcp-server/aiagent.JPG)
+
+  ### 2. Package Controller : 
+#### Classe AIRestController :
+
+La classe AIRestController, annotée avec @RestController, expose une API REST pour communiquer avec l’agent intelligent défini précédemment. Elle contient une seule route GET /chat qui prend une requête utilisateur (query) en paramètre et la transmet à l’agent via la méthode askLLLM. Cette structure permet d'interagir facilement avec l'agent depuis une interface web, un client mobile, ou toute autre application externe. En séparant clairement la logique de l'agent (dans le package agents) et la couche d’exposition REST (dans controller), on suit une bonne pratique de conception logicielle (séparation des responsabilités).
+
+  ![img](screens/mcp-server/airest.JPG)
+
+  
 
 
 
