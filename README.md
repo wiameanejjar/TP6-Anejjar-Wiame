@@ -99,7 +99,7 @@ La classe AIAgent, annotée avec @Service, représente un agent conversationnel 
 
   ![img](screens/mcp-server/aiagent.JPG)
 
-  ### 2. Package Controller : 
+### 2. Package Controller : 
 #### Classe AIRestController :
 
 La classe AIRestController, annotée avec @RestController, expose une API REST pour communiquer avec l’agent intelligent défini précédemment. Elle contient une seule route GET /chat qui prend une requête utilisateur (query) en paramètre et la transmet à l’agent via la méthode askLLLM. Cette structure permet d'interagir facilement avec l'agent depuis une interface web, un client mobile, ou toute autre application externe. En séparant clairement la logique de l'agent (dans le package agents) et la couche d’exposition REST (dans controller), on suit une bonne pratique de conception logicielle (séparation des responsabilités).
@@ -107,9 +107,28 @@ La classe AIRestController, annotée avec @RestController, expose une API REST p
   ![img](screens/mcp-server/airest.JPG)
 
   
+### 3. Classe McpClientApplication  :
+
+La classe McpClientApplication constitue le point d’entrée du module mcp-client. En plus du démarrage classique d’une application Spring Boot, elle utilise un CommandLineRunner pour interagir automatiquement avec un ou plusieurs clients MCP (McpSyncClient). Lors de l'exécution, le code récupère la liste des outils disponibles fournis par le serveur MCP, affiche leurs métadonnées (nom, description, schéma d’entrée), puis appelle automatiquement l’outil getCompanyByName avec un paramètre JSON (par exemple "name": "OCP"). Si le contenu retourné est de type texte, le résultat est affiché dans la console. Ce mécanisme montre comment consommer dynamiquement des outils distants (via MCP) depuis un client Java, tout en respectant le protocole d’échange défini par Model Context Protocol.
+
+  ![img](screens/mcp-server/clientapp.JPG)
+  ![img](screens/mcp-server/clientAApp2é.JPG)
+
+### 4. Application.properties : 
+Ce fichier configure le client MCP. Il :  
+    - Définit le nom de l’application (mcp-client).
+    - Indique que le type de client est synchrone (sync).
+    - Etablit une connexion SSE avec un serveur MCP distant (à l’URL http://localhost:8899 et endpoint /sse).
+    - Précise un fichier mcp-servers.json pour la configuration d’autres serveurs via la ligne de commande (stdio).
+    - Et configure l’URL et le modèle du LLM utilisé via Ollama (llama3.1 localement).
+
+  ![img](screens/mcp-server/CCC.JPG)
 
 
+### 5. Mcp-server.json : 
+Ce fichier JSON liste les serveurs MCP externes que le client peut démarrer et gérer via la ligne de commande (stdio). Il décrit deux serveurs : un serveur Node.js (server-filesystem) lancé avec npx, et un serveur Python (python-mcp) lancé avec uv pour exécuter un script server.py. Les chemins et variables d’environnement nécessaires à chaque lancement sont également définis, permettant une intégration flexible et multiplateforme des serveurs MCP dans le projet.
 
+![img](screens/mcp-server/JSON.JPG)
 
 
 
