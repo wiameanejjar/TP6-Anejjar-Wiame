@@ -1,8 +1,8 @@
 # Projet : Chatbot Agentique avec Spring AI et MCP
 
 ----
-## Nom et Prénom : Anejjar Wiame
-## Filière: MSDIA
+### Nom et Prénom : Anejjar Wiame
+### Filière: MSDIA
 
 ----
 
@@ -56,7 +56,7 @@ Peut être déployé en mode STDIO (Standard Input/Output) pour une communicatio
 
 ![img](screens/mcp-server/puthon-mcp.JPG)
 
-# Technologies Utilisées
+## Technologies Utilisées
 Backend : Java (Spring Boot, Spring AI), Python, NodeJS  
 Protocoles : MCP (Multi-Agent Communication Protocol), SSE  
 Modèles d'IA : Llama3.1  
@@ -164,14 +164,14 @@ Ce script Python définit un outil MCP à l’aide de la classe FastMCP du modul
 
 ![img](screens/mcp-server/pyth.JPG)
 
-# Problèmes rencontrés : 
+## Problèmes rencontrés : 
 Lors de l'exécution du projet, j’ai rencontré des difficultés techniques sur mon ordinateur. Malgré une bonne configuration de l’environnement Python, le fichier server.py n’est pas reconnu comme un environnement Python exécutable. De plus, lorsque je lance une commande comme ollama run llama3.1 par exemple, le processus reste bloqué sans afficher de réponse, même après un long moment. J’ai essayé plusieurs solutions pour corriger ces problèmes (modification des chemins, réinstallation, vérification des dépendances), mais le blocage persiste, ceci est probablement à cause de limitations matérielles ou de performance de ma machine.
 
 ![img](screens/mcp-server/conf.JPG)
 
 ---
 
-# Conclusion
+## Conclusion
 
 Ce projet nous a permis de mettre en pratique les concepts de l’intelligence artificielle appliqués à un contexte réel grâce au protocole MCP. En connectant un client intelligent à un serveur de connaissances via des outils bien définis, nous avons pu automatiser des réponses basées sur des données métier. Malgré certaines contraintes techniques rencontrées, ce travail constitue une base solide pour développer des agents intelligents, modulaires et extensibles.
 
