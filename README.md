@@ -42,12 +42,29 @@ Peut fonctionner comme un serveur SSE (Server-Sent Events) pour une communicatio
 
    - python-mcp-server :  
 Ce module est un exemple de serveur MCP développé en Python. Son rôle est similaire au mcp-server Java, il expose des fonctionnalités (outils) spécifiques, mais implémentées en Python. Cela démontre la capacité du protocole MCP à intégrer des services développés dans différents langages.  
-   - Fonctionnalités clés :  
+     - Fonctionnalités clés :  
 Implémentation de logiques métier en Python (server.py pour des informations sur les employés).  
 Exposition de ces logiques en tant qu'outils MCP.  
 Peut être déployé en mode STDIO (Standard Input/Output) pour une communication directe avec le client MCP Spring AI.
 
 ![img](screens/mcp-server/puthon-mcp.JPG)
+
+# Technologies Utilisées
+Backend : Java (Spring Boot, Spring AI), Python, NodeJS
+Protocoles : MCP (Multi-Agent Communication Protocol), SSE
+Modèles d'IA : Llama3.1
+
+## 📄 Explication détaillée d'implémentation de projet
+
+## Module mcp-server:
+### 1. Classe StockTools.java :  
+  Le fichier StockTolls.java, situé dans le package net.anejjar.mcpserver.tools, définit un outil de gestion fictive d'informations sur des entreprises, utilisé dans le contexte d'une application basée sur Spring AI. Il contient une liste prédéfinie de sociétés marocaines représentées par la classe Company, incluant des données comme l’activité, le chiffre d'affaires, le nombre d’employés et le pays. À travers l’utilisation de l’annotation @Tool, plusieurs méthodes sont exposées comme des outils accessibles à des agents intelligents : getAllCompanies() permet de récupérer la liste complète des entreprises, getCompanyByName(String name) retourne une entreprise en fonction de son nom, et getStockByCompanyName(String name) génère un objet Stock avec une valeur aléatoire simulant un prix de marché. 
+  
+![img](screens/mcp-server/stocktools1.JPG)
+![img](screens/mcp-server/stocktools2.JPG)
+  
+### 2. Classe MCPServerApplication :
+
 
 
 
